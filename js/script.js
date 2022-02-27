@@ -33,45 +33,34 @@ function getNextLottoDraw() {
     var theDates = [];
 
     var theNewDay = theDay;
-    // get two previous dates
-    var count1 = 0;
-    var count2 = 0;
-    while(count1 === 0) {
-        theNewDay = theNewDay - 1;
-        if (theNewDay === -1) {
-            theNewDay = 6;
-        }
-        count2 += 1;
-        if (theNewDay === 3) { count1 = count2 + 4; }
-        if (theNewDay === 6) { count1 = count2 + 3; }
-    }
-    var tempDate = new Date(dateInput);
-    theDates.push(modifyDays(dateInput, count1, false));
-    theDates.push(modifyDays(dateInput, count2, false));
+    dateInput.setDate(dateInput.getDate() - 7);
 
-    // get three future dates
+    // get five future dates
     theNewDay = theDay;
-    var count3 = 0;
-    count1 = 0;
-    count2 = 0;
-    while (count3 === 0) {
+    var count = 0;
+
+    while (theNewDay !== 3 && theNewDay !== 6) {
         theNewDay = theNewDay + 1;
         if (theNewDay === 7) {
             theNewDay = 0;
         }
-        count1 += 1;
-        if (theNewDay === 3) { 
-            count2 = count1 + 3;
-            count3 = count1 + 7; 
-        }
-        if (theNewDay === 6) { 
-            count2 = count1 + 4;
-            count3 = count1 + 7;
-        }
+        count += 1;
     }
-    theDates.push(modifyDays(dateInput, count1, true));
-    theDates.push(modifyDays(dateInput, count2, true));
-    theDates.push(modifyDays(dateInput, count3, true));
+
+    // date 1
+    var tempDate = new Date(dateInput);
+    tempDate.setDate(dateInput.getDate() + count);
+    theDates.push(tempDate);
+    var dayAmt = theNewDay === 3 ? 3 : 4;
+    // dates 2-5
+    for (var i = 0; i < 2; i++) {
+        tempDate = new Date(tempDate);
+        tempDate.setDate(tempDate.getDate() + dayAmt);
+        theDates.push(tempDate);
+        tempDate = new Date(tempDate);
+        tempDate.setDate(tempDate.getDate() + 7 - dayAmt);
+        theDates.push(tempDate);
+    }
 
     // get dates in correct format
     for (var i = 0; i < theDates.length; i++) {
@@ -90,15 +79,4 @@ function getNextLottoDraw() {
     }
 
     document.getElementById("results").classList.toggle("active");
-
-}
-
-function modifyDays(date, days, plus) {
-    var result = new Date(date);
-    if (plus) {
-        result.setDate(result.getDate() + days);
-    } else {
-        result.setDate(result.getDate() - days);
-    }
-    return result;
 }
