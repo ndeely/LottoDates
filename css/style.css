@@ -1,0 +1,222 @@
+@font-face {
+    font-family: 'RobotoM';
+    src: url('../fonts/roboto/Roboto-Medium.eot');
+    src: url('../fonts/roboto/Roboto-Medium.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/roboto/Roboto-Medium.woff2') format('woff2'),
+        url('../fonts/roboto/Roboto-Medium.woff') format('woff'),
+        url('../fonts/roboto/Roboto-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'RobotoB';
+    src: url('../fonts/roboto/Roboto-Black.eot');
+    src: url('../fonts/roboto/Roboto-Black.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/roboto/Roboto-Black.woff2') format('woff2'),
+        url('../fonts/roboto/Roboto-Black.woff') format('woff'),
+        url('../fonts/roboto/Roboto-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'RobotR';
+    src: url('../fonts/roboto/Roboto-Regular.eot');
+    src: url('../fonts/roboto/Roboto-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/roboto/Roboto-Regular.woff2') format('woff2'),
+        url('../fonts/roboto/Roboto-Regular.woff') format('woff'),
+        url('../fonts/roboto/Roboto-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+body {
+    background-color: #4a4a4a;
+    color: white;
+    font-family: "RobotR";
+}
+
+.app-container {
+    margin: 50px;
+}
+
+.box {
+    background-color: #272727;
+}
+
+.clear {
+    clear: both;
+    width: 100%;
+}
+
+.topdiv,
+.box .title {
+    background-color: black;
+}
+
+.box .title {
+    margin: 0;
+    padding: 12px;
+    font-size: 16px;
+}
+
+.box .content {
+    padding: 25px;
+    font-size: 14px;
+}
+
+.box-container {
+    display: flex;
+    justify-content: space-between;
+    flex-flow: wrap;
+    height: 350px;
+}
+
+.info,
+.right-container {
+    height: 100%;
+}
+
+.info {
+    width: 30%;
+}
+
+.right-container {
+    width: 68%;
+    height: auto;
+    clear: both;
+}
+
+.result {
+    margin-top: 10px;
+}
+
+.result h2 {
+    font-family: "RobotoM";
+    font-size: 12px !important;
+}
+
+.topdiv p,
+button[type="Submit"] {
+    background-color: #fc6200;
+}
+
+.topdiv {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.topdiv h1 {
+    padding: 30px;
+    font-size: 24px;
+}
+
+.topdiv p {
+    font-weight: bolder;
+    position: absolute;
+    top: -3px;
+    right: -38px;
+    padding: 5px 50px;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    font-family: "RobotoR";
+    font-size: 14px;
+    overflow: hidden;
+}
+
+table tr {
+    display: flex;
+    border-top:1px solid black;
+}
+table tr td {
+    display: block;
+    margin: 7px 0px;
+    padding: 0px 10px;
+    position: relative;
+}
+
+table.active tr td {
+    transition: 1s ease-in;
+}
+
+table tr td:first-child {
+    left: -200px;
+    border-right: 1px solid black;
+    width: 296px;
+}
+
+table.active tr td:first-child {
+    width: 96px;
+    left: 0px;
+}
+
+table tr td:nth-child(2) {
+    right: 1500px;
+}
+
+table.active tr td:nth-child(2) {
+    right: 0px;
+}
+
+
+table tr:nth-child(3) {
+    background-color: #242424;
+}
+
+.result h2,
+.topdiv p,
+.form button {
+    text-transform: uppercase;
+}
+
+.form input,
+.form button {
+    margin: 10px;
+}
+
+.form input {
+    padding: 6px 10px;
+    width: 250px;
+}
+
+.form button {
+    border: 0;
+    color: white;
+    padding: 6px 30px;
+    cursor: pointer;
+}
+
+.form button:hover,
+.form button:active {
+    opacity: 80%;
+}
+
+.form button:active {
+    position: relative;
+    top: 1px;
+}
+
+@media screen and (max-width:600px) {
+    .app-container {
+        margin: 20px;
+    }
+    .info,
+    .right-container {
+        width: 100%;
+    }
+    .right-container {
+        margin-top: 10px;
+    }
+}
